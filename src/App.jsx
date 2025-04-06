@@ -21,11 +21,13 @@ import UseContext1 from "./workshop/Hook/useContext/UseContext1";
 import CountContextProvider from "./workshop/Hook/useContext/CountContextProvider";
 import ReactLifeCycle1 from "./workshop/Hook/ReactLifeCycle/ReactLifeCycle1";
 import ReactLifeCycle2 from "./workshop/Hook/ReactLifeCycle/ReactLifeCycle2";
+import ReactLifeCycle3 from "./workshop/Hook/ReactLifeCycle/ReactLifeCycle3";
+import ReactLifeCycle4 from "./workshop/Hook/ReactLifeCycle/ReactLifeCycle4";
 
 function App() {
   return (
     <>
-    <ReactLifeCycle2 />
+    <ReactLifeCycle4 />
     </>
   );
 }

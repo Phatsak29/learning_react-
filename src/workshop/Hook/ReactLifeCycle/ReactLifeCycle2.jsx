@@ -7,10 +7,12 @@ const ReactLifeCycle2 = () => {
     const intervalId = setInterval(() => {
       setSeconds(seconds+1);
     }, 1000);
-
+    console.log(`rerender`)
+    
     return () => clearInterval(intervalId);
-  }, [seconds]);
+}, []);
 
+console.log(`rerender`)
   return (
     <>
       <div>Time(sec) : {seconds}</div>
