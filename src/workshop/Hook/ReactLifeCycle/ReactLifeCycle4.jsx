@@ -1,32 +1,36 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react'
 
 const ReactLifeCycle4 = () => {
-  const [querySearch, setQuerySearch] = useState(["a", "B", "c"]);
+  const [querySearch, setQuerySearch] = useState('*')
+  const [result, setResult] = useState([])
 
   const fetchApi = async () => {
-    const urlApi = `https://demo.dataverse.org/api/search?q=${&per_page=100`;
-    const res = await fetch(urlApi);
-    if (!res.ok) throw new Error("reponse is not ok");
-    const data = await res.json();
-    console.log(data);
-  };
+    const url = `https://demo.dataverse.org/api/search?q=${querySearch}=100`
+    const res = await fetch(url)
+    if (!res.ok) throw new Error('res is not ok')
+    const data = await res.json()
+    setResult(data.data.items)
+    // console.log('data',data)
+  }
 
   useEffect(() => {
-    fetchApi();
-  }, []);
+    fetchApi()
+  }, [])
 
   return (
+
     <>
-      <div>
-        Result Search :
-        <input type="text" onChange={(e) => setQuerySearch(e.target.value)} />
-        <ul>
-          {querySearch.map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
+      <div>Result  Search:</div>
+      <input type="text" onChange={(e) => setQuerySearch(e.target.value)} />
+      <ul>
+        {
+          result.map((item,index) => (
+            <li key={index}>{item.name}</li>
+          ))
+        }
+      </ul>
     </>
-  );
-};
-export default ReactLifeCycle4;
+  )
+}
+
+export default ReactLifeCycle4
